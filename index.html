@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -113,8 +113,19 @@
             }
         }
         
+        @keyframes holographicShimmer {
+            0%, 100% { 
+                opacity: 0.1;
+                filter: blur(1px);
+            }
+            50% { 
+                opacity: 0.2;
+                filter: blur(0px);
+            }
+        }
+        
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
             position: relative;
@@ -144,17 +155,6 @@
             z-index: -1;
             animation: holographicShimmer 4s ease-in-out infinite;
             opacity: 0.15;
-        }
-        
-        @keyframes holographicShimmer {
-            0%, 100% { 
-                opacity: 0.1;
-                filter: blur(1px);
-            }
-            50% { 
-                opacity: 0.2;
-                filter: blur(0px);
-            }
         }
         
         .title {
@@ -207,8 +207,55 @@
             font-weight: 600;
             text-shadow: 0 0 8px rgba(125, 110, 184, 0.5);
         }
-
-         .section {
+        
+        .link-container {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid rgba(139, 127, 184, 0.2);
+        }
+        
+        .repo-link {
+            display: inline-block;
+            color: #8b7fb8;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding: 15px 30px;
+            border: 2px solid #8b7fb8;
+            border-radius: 25px;
+            background: rgba(139, 127, 184, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .repo-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 127, 184, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .repo-link:hover::before {
+            left: 100%;
+        }
+        
+        .repo-link:hover {
+            color: #1a1a2e;
+            background: #8b7fb8;
+            box-shadow: 
+                0 0 15px rgba(139, 127, 184, 0.5),
+                0 0 25px rgba(139, 127, 184, 0.3);
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        /* Recommendations sections */
+        .section {
             background: rgba(0, 0, 0, 0.8);
             border: 2px solid #8b7fb8;
             border-radius: 15px;
@@ -325,52 +372,6 @@
             transform: scale(1.05);
         }
         
-        .link-container {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            border-top: 1px solid rgba(139, 127, 184, 0.2);
-        }
-        
-        .repo-link {
-            display: inline-block;
-            color: #8b7fb8;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 500;
-            padding: 15px 30px;
-            border: 2px solid #8b7fb8;
-            border-radius: 25px;
-            background: rgba(139, 127, 184, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .repo-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(139, 127, 184, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .repo-link:hover::before {
-            left: 100%;
-        }
-        
-        .repo-link:hover {
-            color: #1a1a2e;
-            background: #8b7fb8;
-            box-shadow: 
-                0 0 15px rgba(139, 127, 184, 0.5),
-                0 0 25px rgba(139, 127, 184, 0.3);
-            transform: translateY(-2px) scale(1.05);
-        }
-        
         /* Floating particles */
         .particle {
             position: fixed;
@@ -455,26 +456,6 @@
             51%, 100% { opacity: 0; }
         }
         
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2.5em;
-            }
-            
-            .main-content {
-                padding: 25px;
-                margin: 30px 0;
-            }
-            
-            .message {
-                font-size: 1.1em;
-            }
-            
-            .container {
-                padding: 20px 15px;
-            }
-        }
-        
         /* Scanline effect */
         .scanline {
             position: fixed;
@@ -490,6 +471,52 @@
         @keyframes scanline {
             0% { top: 0; opacity: 1; }
             100% { top: 100vh; opacity: 0; }
+        }
+        
+        /* Section spacer */
+        .section-spacer {
+            height: 80px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-spacer::before {
+            content: '✦';
+            color: #8b7fb8;
+            font-size: 2em;
+            opacity: 0.5;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5em;
+            }
+            
+            .main-content, .section {
+                padding: 25px;
+                margin: 30px 0;
+            }
+            
+            .message {
+                font-size: 1.1em;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+            
+            .items-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -508,94 +535,13 @@
     <div class="particle" style="top: 70%; left: 40%; width: 6px; height: 6px;"></div>
     
     <div class="container">
+        <!-- Main Birthday Message -->
         <div class="main-content">
             <h1 class="title">🎂 Happy Birthday, Nit!</h1>
             <p class="subtitle">You're 22 now — officially an old man</p>
             
             <div class="message">
                 I wanted to give you something you can hold onto for a while, something you can look back on and smile at. It's not <em>quite</em> finished yet (I'm still adding one final surprise to the repo), but I thought you might like having a place to revisit some familiar memories whenever you need them.
-            </div>
-
-        <div class="container">
-            <div class="header">
-                <h1 class="main-title">Things You Might Love</h1>
-                <p class="subtitle">A curated collection of books and movies ✨</p>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">📚 Books</h2>
-                <div class="items-grid">
-                    <div class="item-card">
-                        <div class="item-title">The Martian</div>
-                        <div class="item-author">by Andy Weir(d)</div>
-                        <a href="https://libgen.is/book/index.php?md5=9601F0A6AB90874E8C0A9D93F9A7B1E5" class="item-link" target="_blank">Library Genesis link</a>
-                    </div>
-                    
-                    <div class="item-card">
-                        <div class="item-title">Thing Explainer</div>
-                        <div class="item-author">by Randall Munroe</div>
-                        <a href="https://libgen.is/book/index.php?md5=416BA9A38751BF952063D3860841E2A3" class="item-link" target="_blank">Library Genesis Link</a>
-                    </div>
-                    
-                    <div class="item-card">
-                        <div class="item-title">Elantris</div>
-                        <div class="item-author">by Brandon Sanderson</div>
-                        <a href="https://libgen.is/book/index.php?md5=0998A9D0D90348338BD816FFC0C345E1" class="item-link" target="_blank">Library Genesis Link</a>
-                    </div>
-                    
-                    <div class="item-card">
-                        <div class="item-title">Immortals of Meluha</div>
-                        <div class="item-author">by Amish Tripathi</div>
-                        <a href="https://libgen.is/book/index.php?md5=25757419AE64D22D150CC7478BED4701" class="item-link" target="_blank">View on Goodreads</a>
-                    </div>
-                </div>
-            </div>
-
-                       <div class="section">
-                <h2 class="section-title">🎬 Movies & Shows</h2>
-                <div class="items-grid">
-                    <div class="item-card">
-                        <div class="item-title">Perfect Blue</div>
-                        <div class="item-author">1997 Film - Satoshi Kon</div>
-                        <div class="item-description">A psychological thriller masterpiece about identity, reality, and the dark side of fame. Kon's brilliant direction creates a haunting exploration of the human psyche.</div>
-                        <a href="https://www.imdb.com/title/tt0156887/" class="item-link" target="_blank">View on IMDb</a>
-                    </div>
-                    
-                    <div class="item-card">
-                        <div class="item-title">Lazarus</div>
-                        <div class="item-author">Anime Series</div>
-                        <div class="item-description">A mind-bending sci-fi series that explores themes of consciousness, technology, and what it means to be human in a digital age.</div>
-                        <a href="https://myanimelist.net/anime/4094/Lazarus" class="item-link" target="_blank">View on MyAnimeList</a>
-                    </div>
-                    
-                    <div class="item-card">
-                        <div class="item-title">Vagabond</div>
-                        <div class="item-author">Manga Series - Takehiko Inoue</div>
-                        <div class="item-description">An epic tale of self-discovery following the legendary swordsman Musashi. Stunning artwork and profound philosophical depth about the warrior's path.</div>
-                        <a href="https://myanimelist.net/manga/656/Vagabond" class="item-link" target="_blank">View on MyAnimeList</a>
-                    </div>
-                    
-                    <div class="item-card">
-                        <div class="item-title">Vinland Saga</div>
-                        <div class="item-author">Anime/Manga Series</div>
-                        <div class="item-description">A powerful story about war, revenge, and ultimately finding peace. Beautiful animation and deep character development exploring themes of violence and redemption.</div>
-                        <a href="https://www.imdb.com/title/tt10233448/" class="item-link" target="_blank">View on IMDb</a>
-                    </div>
-                    
-                    <div class="item-card">
-                        <div class="item-title">X (1999)</div>
-                        <div class="item-author">1999 Film - CLAMP</div>
-                        <div class="item-description">A visually stunning apocalyptic anime film about destiny, choice, and the end of the world. Dark, beautiful, and emotionally complex storytelling.</div>
-                        <a href="https://www.imdb.com/title/tt0215134/" class="item-link" target="_blank">View on IMDb</a>
-                    </div>
-                    
-                    <div class="item-card">
-                        <div class="item-title">Puparia</div>
-                        <div class="item-author">2020 Short Film - Shingo Tamagawa</div>
-                        <div class="item-description">A mesmerizing 3-minute animated short that's pure visual poetry. Abstract, surreal, and hauntingly beautiful - like a fever dream brought to life.</div>
-                        <a href="https://www.youtube.com/watch?v=CWnqX41JHuM" class="item-link" target="_blank">Watch on YouTube</a>
-                    </div>
-                </div>
             </div>
             
             <div class="signature">
@@ -606,14 +552,163 @@
                 <a href="https://github.com/arte5craft/Happy-Birthday-Nit/tree/main" class="repo-link" target="_blank">
                     link to repo btw :p
                 </a>
-                <div style="margin-top: 25px;">
-                    <a href="#recommendations" class="repo-link" onclick="showRecommendations()">
-                        ✨ Things You Might Love
-                    </a>
+            </div>
+        </div>
+        
+        <!-- Section Spacer -->
+        <div class="section-spacer"></div>
+        
+        <!-- Books Section -->
+        <div class="section">
+            <h2 class="section-title">📚 Books</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-title">The Midnight Library</div>
+                    <div class="item-author">by Matt Haig</div>
+                    <div class="item-description">A beautiful exploration of life's infinite possibilities and the power of choice. Perfect for contemplating all the paths life can take.</div>
+                    <a href="https://www.goodreads.com/book/show/52578297-the-midnight-library" class="item-link" target="_blank">View on Goodreads</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Klara and the Sun</div>
+                    <div class="item-author">by Kazuo Ishiguro</div>
+                    <div class="item-description">A touching story told from an AI's perspective about love, sacrifice, and what it means to be human. Beautifully written and thought-provoking.</div>
+                    <a href="https://www.goodreads.com/book/show/54120408-klara-and-the-sun" class="item-link" target="_blank">View on Goodreads</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Project Hail Mary</div>
+                    <div class="item-author">by Andy Weir</div>
+                    <div class="item-description">An incredible sci-fi adventure about friendship, science, and saving humanity. Funny, heartwarming, and absolutely unputdownable.</div>
+                    <a href="https://www.goodreads.com/book/show/54493401-project-hail-mary" class="item-link" target="_blank">View on Goodreads</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">The Seven Husbands of Evelyn Hugo</div>
+                    <div class="item-author">by Taylor Jenkins Reid</div>
+                    <div class="item-description">A captivating story about love, ambition, and the price of fame. Beautifully written with unforgettable characters.</div>
+                    <a href="https://www.goodreads.com/book/show/32620332-the-seven-husbands-of-evelyn-hugo" class="item-link" target="_blank">View on Goodreads</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Movies Section -->
+        <div class="section">
+            <h2 class="section-title">🎬 Movies & Shows</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-title">Perfect Blue</div>
+                    <div class="item-author">1997 Film - Satoshi Kon</div>
+                    <div class="item-description">A psychological thriller masterpiece about identity, reality, and the dark side of fame. Kon's brilliant direction creates a haunting exploration of the human psyche.</div>
+                    <a href="https://www.imdb.com/title/tt0156887/" class="item-link" target="_blank">View on IMDb</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Lazarus</div>
+                    <div class="item-author">Anime Series</div>
+                    <div class="item-description">A mind-bending sci-fi series that explores themes of consciousness, technology, and what it means to be human in a digital age.</div>
+                    <a href="https://myanimelist.net/anime/4094/Lazarus" class="item-link" target="_blank">View on MyAnimeList</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Vagabond</div>
+                    <div class="item-author">Manga Series - Takehiko Inoue</div>
+                    <div class="item-description">An epic tale of self-discovery following the legendary swordsman Musashi. Stunning artwork and profound philosophical depth about the warrior's path.</div>
+                    <a href="https://myanimelist.net/manga/656/Vagabond" class="item-link" target="_blank">View on MyAnimeList</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Vinland Saga</div>
+                    <div class="item-author">Anime/Manga Series</div>
+                    <div class="item-description">A powerful story about war, revenge, and ultimately finding peace. Beautiful animation and deep character development exploring themes of violence and redemption.</div>
+                    <a href="https://www.imdb.com/title/tt10233448/" class="item-link" target="_blank">View on IMDb</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">X (1999)</div>
+                    <div class="item-author">1999 Film - CLAMP</div>
+                    <div class="item-description">A visually stunning apocalyptic anime film about destiny, choice, and the end of the world. Dark, beautiful, and emotionally complex storytelling.</div>
+                    <a href="https://www.imdb.com/title/tt0215134/" class="item-link" target="_blank">View on IMDb</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Puparia</div>
+                    <div class="item-author">2020 Short Film - Shingo Tamagawa</div>
+                    <div class="item-description">A mesmerizing 3-minute animated short that's pure visual poetry. Abstract, surreal, and hauntingly beautiful - like a fever dream brought to life.</div>
+                    <a href="https://www.youtube.com/watch?v=CWnqX41JHuM" class="item-link" target="_blank">Watch on YouTube</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Games Section -->
+        <div class="section">
+            <h2 class="section-title">🎮 Games & Experiences</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-title">Outer Wilds</div>
+                    <div class="item-author">Exploration Game</div>
+                    <div class="item-description">A beautiful space exploration game about curiosity, discovery, and the wonder of the universe. Truly unique experience.</div>
+                    <a href="https://store.steampowered.com/app/753640/Outer_Wilds/" class="item-link" target="_blank">View on Steam</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Spiritfarer</div>
+                    <div class="item-author">Cozy Management Game</div>
+                    <div class="item-description">A touching game about caring for spirits and letting go. Beautiful art, gentle gameplay, and emotional storytelling.</div>
+                    <a href="https://store.steampowered.com/app/972660/Spiritfarer/" class="item-link" target="_blank">View on Steam</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">A Short Hike</div>
+                    <div class="item-author">Peaceful Adventure</div>
+                    <div class="item-description">A relaxing, short experience about hiking to the top of a mountain. Perfect for unwinding and feeling peaceful.</div>
+                    <a href="https://store.steampowered.com/app/1055540/A_Short_Hike/" class="item-link" target="_blank">View on Steam</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Disco Elysium</div>
+                    <div class="item-author">RPG</div>
+                    <div class="item-description">An incredible narrative RPG with brilliant writing and deep character development. A unique gaming experience.</div>
+                    <a href="https://store.steampowered.com/app/632470/Disco_Elysium/" class="item-link" target="_blank">View on Steam</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Music Section -->
+        <div class="section">
+            <h2 class="section-title">🎵 Music & Podcasts</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-title">Bon Iver</div>
+                    <div class="item-author">Artist</div>
+                    <div class="item-description">Beautiful, atmospheric music perfect for reflection and contemplation. Start with "22, A Million" or "For Emma, Forever Ago".</div>
+                    <a href="https://open.spotify.com/artist/4LEiUm1SRbFMgfqnQTwUbQ" class="item-link" target="_blank">Listen on Spotify</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">The Magnus Archives</div>
+                    <div class="item-author">Horror Podcast</div>
+                    <div class="item-description">Brilliant supernatural horror podcast with incredible world-building and storytelling. Perfect for fans of cosmic horror.</div>
+                    <a href="https://rustyquill.com/show/the-magnus-archives/" class="item-link" target="_blank">Listen Here</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Radiohead</div>
+                    <div class="item-author">Artist</div>
+                    <div class="item-description">Experimental and emotionally complex music. Try "OK Computer" or "In Rainbows" for something transcendent.</div>
+                    <a href="https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb" class="item-link" target="_blank">Listen on Spotify</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Philosophy This!</div>
+                    <div class="item-author">Philosophy Podcast</div>
+                    <div class="item-description">Accessible philosophy discussions that make complex ideas understandable and engaging. Great for curious minds.</div>
+                    <a href="https://www.philosophythis.org/" class="item-link" target="_blank">Listen Here</a>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script>
         // Create star field
