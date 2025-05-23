@@ -1,12 +1,555 @@
-1. Lazarus
-2. Vagabond
-3. Vinland Saga
-4. Billy Bat
-5. X (1999)
-6. Puparia
-7. Dorohedero
-8. Tokyo's Grandfather
-9. Tekkonkinkreet
-10. Vampire Hunter D-2000
-11. RAN
-12. Fantastic Planet
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things You Might Love - For Nit</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #0f0f17 0%, #1a1a2e 50%, #252541 100%);
+            color: #8b7fb8;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(139, 127, 184, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 127, 184, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Holographic pulse animation */
+        @keyframes holographicPulse {
+            0%, 100% {
+                border-color: #8b7fb8;
+                box-shadow: 
+                    0 0 15px rgba(139, 127, 184, 0.3),
+                    inset 0 0 15px rgba(139, 127, 184, 0.05);
+            }
+            25% {
+                border-color: #6d7fcc;
+                box-shadow: 
+                    0 0 18px rgba(109, 127, 204, 0.35),
+                    inset 0 0 18px rgba(109, 127, 204, 0.08);
+            }
+            50% {
+                border-color: #7d6eb8;
+                box-shadow: 
+                    0 0 20px rgba(125, 110, 184, 0.4),
+                    inset 0 0 20px rgba(125, 110, 184, 0.1);
+            }
+            75% {
+                border-color: #6b9ed6;
+                box-shadow: 
+                    0 0 18px rgba(107, 158, 214, 0.35),
+                    inset 0 0 18px rgba(107, 158, 214, 0.08);
+            }
+        }
+        
+        @keyframes holographicShimmer {
+            0%, 100% { 
+                opacity: 0.1;
+                filter: blur(1px);
+            }
+            50% { 
+                opacity: 0.2;
+                filter: blur(0px);
+            }
+        }
+        
+        /* Neon glow animation */
+        @keyframes neonGlow {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #8b7fb8,
+                    0 0 10px #8b7fb8,
+                    0 0 15px #8b7fb8;
+            }
+            50% {
+                text-shadow: 
+                    0 0 10px #8b7fb8,
+                    0 0 20px #8b7fb8,
+                    0 0 25px #8b7fb8,
+                    0 0 30px #8b7fb8;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .main-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 3em;
+            font-weight: 900;
+            color: #8b7fb8;
+            animation: neonGlow 3s ease-in-out infinite alternate;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #7a9cc6;
+            font-weight: 400;
+            text-shadow: 0 0 5px rgba(122, 156, 198, 0.3);
+        }
+        
+        .section {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #8b7fb8;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            backdrop-filter: blur(10px);
+            animation: holographicPulse 6s ease-in-out infinite;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #8b7fb8, #6d7fcc, #7d6eb8, #6b9ed6);
+            border-radius: 17px;
+            z-index: -1;
+            animation: holographicShimmer 4s ease-in-out infinite;
+            opacity: 0.15;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #6d7fcc;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(109, 127, 204, 0.5);
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .item-card {
+            background: rgba(139, 127, 184, 0.08);
+            border: 1px solid rgba(139, 127, 184, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .item-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 127, 184, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .item-card:hover::before {
+            left: 100%;
+        }
+        
+        .item-card:hover {
+            border-color: #8b7fb8;
+            box-shadow: 
+                0 8px 25px rgba(139, 127, 184, 0.2),
+                0 0 15px rgba(139, 127, 184, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .item-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #8b7fb8;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(139, 127, 184, 0.3);
+        }
+        
+        .item-author {
+            font-size: 1.1em;
+            color: #7d6eb8;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .item-description {
+            font-size: 1em;
+            color: #7a9cc6;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .item-link {
+            display: inline-block;
+            color: #6d7fcc;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            border: 1px solid #6d7fcc;
+            border-radius: 20px;
+            background: rgba(109, 127, 204, 0.1);
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .item-link:hover {
+            background: #6d7fcc;
+            color: #1a1a2e;
+            box-shadow: 0 0 10px rgba(109, 127, 204, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .category-icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+        
+        /* Star field background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+        
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        .star:nth-child(2n) {
+            background: rgba(139, 127, 184, 0.5);
+            animation-delay: -1s;
+        }
+        
+        .star:nth-child(3n) {
+            background: rgba(109, 127, 204, 0.4);
+            animation-delay: -2s;
+        }
+        
+        .star:nth-child(5n) {
+            background: rgba(122, 156, 198, 0.4);
+            animation-delay: -0.5s;
+        }
+        
+        /* Scanline effect */
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(139, 127, 184, 0.4), transparent);
+            animation: scanline 5s linear infinite;
+            z-index: 1000;
+        }
+        
+        @keyframes scanline {
+            0% { top: 0; opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+        
+        /* Back link */
+        .back-link {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            color: #8b7fb8;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #8b7fb8;
+            border-radius: 25px;
+            background: rgba(139, 127, 184, 0.08);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-link:hover {
+            background: #8b7fb8;
+            color: #1a1a2e;
+            box-shadow: 0 0 15px rgba(139, 127, 184, 0.5);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.2em;
+            }
+            
+            .section {
+                padding: 25px;
+                margin: 25px 0;
+            }
+            
+            .items-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .back-link {
+                top: 15px;
+                left: 15px;
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    
+    <!-- Star field background -->
+    <div class="stars" id="starField"></div>
+    
+    <a href="#" class="back-link">← Back to Birthday</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">Things You Might Love</h1>
+            <p class="subtitle">A curated collection of books, movies, and more just for you ✨</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">📚 Books</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-title">The Midnight Library</div>
+                    <div class="item-author">by Matt Haig</div>
+                    <div class="item-description">A beautiful exploration of life's infinite possibilities and the power of choice. Perfect for contemplating all the paths life can take.</div>
+                    <a href="https://www.goodreads.com/book/show/52578297-the-midnight-library" class="item-link" target="_blank">View on Goodreads</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Klara and the Sun</div>
+                    <div class="item-author">by Kazuo Ishiguro</div>
+                    <div class="item-description">A touching story told from an AI's perspective about love, sacrifice, and what it means to be human. Beautifully written and thought-provoking.</div>
+                    <a href="https://www.goodreads.com/book/show/54120408-klara-and-the-sun" class="item-link" target="_blank">View on Goodreads</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Project Hail Mary</div>
+                    <div class="item-author">by Andy Weir</div>
+                    <div class="item-description">An incredible sci-fi adventure about friendship, science, and saving humanity. Funny, heartwarming, and absolutely unputdownable.</div>
+                    <a href="https://www.goodreads.com/book/show/54493401-project-hail-mary" class="item-link" target="_blank">View on Goodreads</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">The Seven Husbands of Evelyn Hugo</div>
+                    <div class="item-author">by Taylor Jenkins Reid</div>
+                    <div class="item-description">A captivating story about love, ambition, and the price of fame. Beautifully written with unforgettable characters.</div>
+                    <a href="https://www.goodreads.com/book/show/32620332-the-seven-husbands-of-evelyn-hugo" class="item-link" target="_blank">View on Goodreads</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">🎬 Movies & Shows</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-title">Everything Everywhere All at Once</div>
+                    <div class="item-author">2022 Film</div>
+                    <div class="item-description">A mind-bending multiverse adventure that's equal parts hilarious and heartfelt. About family, potential, and finding meaning in chaos.</div>
+                    <a href="https://www.imdb.com/title/tt6710474/" class="item-link" target="_blank">View on IMDb</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">The Good Place</div>
+                    <div class="item-author">TV Series</div>
+                    <div class="item-description">A brilliant comedy about ethics, friendship, and becoming a better person. Funny, philosophical, and surprisingly deep.</div>
+                    <a href="https://www.imdb.com/title/tt4955642/" class="item-link" target="_blank">View on IMDb</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Spider-Man: Into the Spider-Verse</div>
+                    <div class="item-author">2018 Film</div>
+                    <div class="item-description">Stunning animation and a heartfelt story about finding your own path. Visually revolutionary and emotionally resonant.</div>
+                    <a href="https://www.imdb.com/title/tt4633694/" class="item-link" target="_blank">View on IMDb</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Arcane</div>
+                    <div class="item-author">Netflix Series</div>
+                    <div class="item-description">Incredible animation and storytelling. A deep dive into character development with stunning visuals and emotional depth.</div>
+                    <a href="https://www.imdb.com/title/tt11126994/" class="item-link" target="_blank">View on IMDb</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">🎮 Games & Experiences</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-title">Outer Wilds</div>
+                    <div class="item-author">Exploration Game</div>
+                    <div class="item-description">A beautiful space exploration game about curiosity, discovery, and the wonder of the universe. Truly unique experience.</div>
+                    <a href="https://store.steampowered.com/app/753640/Outer_Wilds/" class="item-link" target="_blank">View on Steam</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Spiritfarer</div>
+                    <div class="item-author">Cozy Management Game</div>
+                    <div class="item-description">A touching game about caring for spirits and letting go. Beautiful art, gentle gameplay, and emotional storytelling.</div>
+                    <a href="https://store.steampowered.com/app/972660/Spiritfarer/" class="item-link" target="_blank">View on Steam</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">A Short Hike</div>
+                    <div class="item-author">Peaceful Adventure</div>
+                    <div class="item-description">A relaxing, short experience about hiking to the top of a mountain. Perfect for unwinding and feeling peaceful.</div>
+                    <a href="https://store.steampowered.com/app/1055540/A_Short_Hike/" class="item-link" target="_blank">View on Steam</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Disco Elysium</div>
+                    <div class="item-author">RPG</div>
+                    <div class="item-description">An incredible narrative RPG with brilliant writing and deep character development. A unique gaming experience.</div>
+                    <a href="https://store.steampowered.com/app/632470/Disco_Elysium/" class="item-link" target="_blank">View on Steam</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">🎵 Music & Podcasts</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-title">Bon Iver</div>
+                    <div class="item-author">Artist</div>
+                    <div class="item-description">Beautiful, atmospheric music perfect for reflection and contemplation. Start with "22, A Million" or "For Emma, Forever Ago".</div>
+                    <a href="https://open.spotify.com/artist/4LEiUm1SRbFMgfqnQTwUbQ" class="item-link" target="_blank">Listen on Spotify</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">The Magnus Archives</div>
+                    <div class="item-author">Horror Podcast</div>
+                    <div class="item-description">Brilliant supernatural horror podcast with incredible world-building and storytelling. Perfect for fans of cosmic horror.</div>
+                    <a href="https://rustyquill.com/show/the-magnus-archives/" class="item-link" target="_blank">Listen Here</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Radiohead</div>
+                    <div class="item-author">Artist</div>
+                    <div class="item-description">Experimental and emotionally complex music. Try "OK Computer" or "In Rainbows" for something transcendent.</div>
+                    <a href="https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb" class="item-link" target="_blank">Listen on Spotify</a>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-title">Philosophy This!</div>
+                    <div class="item-author">Philosophy Podcast</div>
+                    <div class="item-description">Accessible philosophy discussions that make complex ideas understandable and engaging. Great for curious minds.</div>
+                    <a href="https://www.philosophythis.org/" class="item-link" target="_blank">Listen Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create star field
+        function createStarField() {
+            const starField = document.getElementById('starField');
+            const numberOfStars = 120;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // Random size (1-3px)
+                const size = Math.random() * 2 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                
+                // Random animation delay
+                star.style.animationDelay = Math.random() * 4 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                
+                starField.appendChild(star);
+            }
+        }
+        
+        // Initialize star field
+        createStarField();
+        
+        // Add subtle parallax effect to cards
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.item-card');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            cards.forEach((card, index) => {
+                const speed = (index % 3 + 1) * 0.5;
+                const x = (mouseX - 0.5) * speed;
+                const y = (mouseY - 0.5) * speed;
+                card.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
