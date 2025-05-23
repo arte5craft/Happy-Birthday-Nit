@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -123,13 +123,13 @@
         
         .main-content {
             background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #a855f7;
+            border: 2px solid #8b7fb8;
             border-radius: 10px;
             padding: 40px;
             margin: 60px 0;
             position: relative;
             backdrop-filter: blur(10px);
-            animation: holographicPulse 4s ease-in-out infinite;
+            animation: holographicPulse 5s ease-in-out infinite;
         }
         
         .main-content::before {
@@ -139,20 +139,20 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #a855f7, #3b82f6, #8b5cf6, #06b6d4);
+            background: linear-gradient(45deg, #8b7fb8, #6d7fcc, #7d6eb8, #6b9ed6);
             border-radius: 12px;
             z-index: -1;
-            animation: holographicShimmer 3s ease-in-out infinite;
-            opacity: 0.3;
+            animation: holographicShimmer 4s ease-in-out infinite;
+            opacity: 0.15;
         }
         
         @keyframes holographicShimmer {
             0%, 100% { 
-                opacity: 0.2;
+                opacity: 0.1;
                 filter: blur(1px);
             }
             50% { 
-                opacity: 0.4;
+                opacity: 0.2;
                 filter: blur(0px);
             }
         }
@@ -163,8 +163,8 @@
             font-weight: 900;
             text-align: center;
             margin-bottom: 30px;
-            color: #a855f7;
-            animation: neonGlow 2s ease-in-out infinite alternate;
+            color: #8b7fb8;
+            animation: neonGlow 3s ease-in-out infinite alternate;
             position: relative;
         }
         
@@ -175,8 +175,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            color: #3b82f6;
-            animation: glitch 0.3s ease-in-out infinite;
+            color: #6d7fcc;
+            animation: glitch 0.5s ease-in-out infinite;
             clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
             z-index: -1;
         }
@@ -185,17 +185,17 @@
             font-size: 1.4em;
             text-align: center;
             margin-bottom: 40px;
-            color: #3b82f6;
+            color: #6d7fcc;
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+            text-shadow: 0 0 8px rgba(109, 127, 204, 0.5);
         }
         
         .message {
             font-size: 1.3em;
             line-height: 1.8;
             margin-bottom: 30px;
-            color: #06b6d4;
-            text-shadow: 0 0 5px rgba(6, 182, 212, 0.5);
+            color: #7a9cc6;
+            text-shadow: 0 0 5px rgba(122, 156, 198, 0.3);
             font-weight: 400;
         }
         
@@ -203,28 +203,28 @@
             font-size: 1.2em;
             text-align: right;
             margin-top: 30px;
-            color: #8b5cf6;
+            color: #7d6eb8;
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
+            text-shadow: 0 0 8px rgba(125, 110, 184, 0.5);
         }
         
         .link-container {
             text-align: center;
             margin-top: 40px;
             padding: 20px;
-            border-top: 1px solid rgba(168, 85, 247, 0.3);
+            border-top: 1px solid rgba(139, 127, 184, 0.2);
         }
         
         .repo-link {
             display: inline-block;
-            color: #a855f7;
+            color: #8b7fb8;
             text-decoration: none;
             font-size: 1.1em;
             font-weight: 500;
             padding: 15px 30px;
-            border: 2px solid #a855f7;
+            border: 2px solid #8b7fb8;
             border-radius: 25px;
-            background: rgba(168, 85, 247, 0.1);
+            background: rgba(139, 127, 184, 0.08);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -237,7 +237,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(139, 127, 184, 0.2), transparent);
             transition: left 0.5s ease;
         }
         
@@ -246,43 +246,44 @@
         }
         
         .repo-link:hover {
-            color: #000;
-            background: #a855f7;
+            color: #1a1a2e;
+            background: #8b7fb8;
             box-shadow: 
-                0 0 20px rgba(168, 85, 247, 0.8),
-                0 0 40px rgba(168, 85, 247, 0.6);
+                0 0 15px rgba(139, 127, 184, 0.5),
+                0 0 25px rgba(139, 127, 184, 0.3);
             transform: translateY(-2px) scale(1.05);
         }
         
         /* Floating particles */
         .particle {
             position: fixed;
-            background: #a855f7;
+            background: #8b7fb8;
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
             animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
         }
         
         @keyframes float {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
-                opacity: 0.7;
+                opacity: 0.4;
             }
             50% {
                 transform: translateY(-20px) rotate(180deg);
-                opacity: 1;
+                opacity: 0.8;
             }
         }
         
         .particle:nth-child(odd) {
-            background: #3b82f6;
+            background: #6d7fcc;
             animation-delay: -2s;
             animation-duration: 8s;
         }
         
         .particle:nth-child(3n) {
-            background: #06b6d4;
+            background: #7a9cc6;
             animation-delay: -4s;
             animation-duration: 10s;
         }
@@ -300,35 +301,35 @@
         
         .star {
             position: absolute;
-            background: white;
+            background: rgba(255, 255, 255, 0.6);
             border-radius: 50%;
-            animation: twinkle 3s ease-in-out infinite;
+            animation: twinkle 4s ease-in-out infinite;
         }
         
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
         }
         
         .star:nth-child(2n) {
-            background: #a855f7;
+            background: rgba(139, 127, 184, 0.5);
             animation-delay: -1s;
         }
         
         .star:nth-child(3n) {
-            background: #3b82f6;
+            background: rgba(109, 127, 204, 0.4);
             animation-delay: -2s;
         }
         
         .star:nth-child(5n) {
-            background: #06b6d4;
+            background: rgba(122, 156, 198, 0.4);
             animation-delay: -0.5s;
         }
         
         /* Terminal-style cursor */
         .cursor::after {
             content: '|';
-            color: #a855f7;
+            color: #8b7fb8;
             animation: blink 1s infinite;
         }
         
@@ -364,8 +365,8 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #a855f7, transparent);
-            animation: scanline 3s linear infinite;
+            background: linear-gradient(90deg, transparent, rgba(139, 127, 184, 0.4), transparent);
+            animation: scanline 4s linear infinite;
             z-index: 1000;
         }
         
@@ -397,6 +398,150 @@
             <div class="message">
                 I wanted to give you something you can hold onto for a while, something you can look back on and smile at. It's not <em>quite</em> finished yet (I'm still adding one final surprise to the repo), but I thought you might like having a place to revisit some familiar memories whenever you need them.
             </div>
+
+    <!-- Hidden Recommendations Page -->
+    <div id="recommendationsPage" style="display: none;">
+        <a href="#" class="back-link" onclick="showBirthday()">← Back to Birthday</a>
+        
+        <div class="container">
+            <div class="header">
+                <h1 class="main-title">Things You Might Love</h1>
+                <p class="subtitle">A curated collection of books, movies, and more just for you ✨</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📚 Books</h2>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-title">The Midnight Library</div>
+                        <div class="item-author">by Matt Haig</div>
+                        <div class="item-description">A beautiful exploration of life's infinite possibilities and the power of choice. Perfect for contemplating all the paths life can take.</div>
+                        <a href="https://www.goodreads.com/book/show/52578297-the-midnight-library" class="item-link" target="_blank">View on Goodreads</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">Klara and the Sun</div>
+                        <div class="item-author">by Kazuo Ishiguro</div>
+                        <div class="item-description">A touching story told from an AI's perspective about love, sacrifice, and what it means to be human. Beautifully written and thought-provoking.</div>
+                        <a href="https://www.goodreads.com/book/show/54120408-klara-and-the-sun" class="item-link" target="_blank">View on Goodreads</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">Project Hail Mary</div>
+                        <div class="item-author">by Andy Weir</div>
+                        <div class="item-description">An incredible sci-fi adventure about friendship, science, and saving humanity. Funny, heartwarming, and absolutely unputdownable.</div>
+                        <a href="https://www.goodreads.com/book/show/54493401-project-hail-mary" class="item-link" target="_blank">View on Goodreads</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">The Seven Husbands of Evelyn Hugo</div>
+                        <div class="item-author">by Taylor Jenkins Reid</div>
+                        <div class="item-description">A captivating story about love, ambition, and the price of fame. Beautifully written with unforgettable characters.</div>
+                        <a href="https://www.goodreads.com/book/show/32620332-the-seven-husbands-of-evelyn-hugo" class="item-link" target="_blank">View on Goodreads</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🎬 Movies & Shows</h2>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-title">Everything Everywhere All at Once</div>
+                        <div class="item-author">2022 Film</div>
+                        <div class="item-description">A mind-bending multiverse adventure that's equal parts hilarious and heartfelt. About family, potential, and finding meaning in chaos.</div>
+                        <a href="https://www.imdb.com/title/tt6710474/" class="item-link" target="_blank">View on IMDb</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">The Good Place</div>
+                        <div class="item-author">TV Series</div>
+                        <div class="item-description">A brilliant comedy about ethics, friendship, and becoming a better person. Funny, philosophical, and surprisingly deep.</div>
+                        <a href="https://www.imdb.com/title/tt4955642/" class="item-link" target="_blank">View on IMDb</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">Spider-Man: Into the Spider-Verse</div>
+                        <div class="item-author">2018 Film</div>
+                        <div class="item-description">Stunning animation and a heartfelt story about finding your own path. Visually revolutionary and emotionally resonant.</div>
+                        <a href="https://www.imdb.com/title/tt4633694/" class="item-link" target="_blank">View on IMDb</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">Arcane</div>
+                        <div class="item-author">Netflix Series</div>
+                        <div class="item-description">Incredible animation and storytelling. A deep dive into character development with stunning visuals and emotional depth.</div>
+                        <a href="https://www.imdb.com/title/tt11126994/" class="item-link" target="_blank">View on IMDb</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🎮 Games & Experiences</h2>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-title">Outer Wilds</div>
+                        <div class="item-author">Exploration Game</div>
+                        <div class="item-description">A beautiful space exploration game about curiosity, discovery, and the wonder of the universe. Truly unique experience.</div>
+                        <a href="https://store.steampowered.com/app/753640/Outer_Wilds/" class="item-link" target="_blank">View on Steam</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">Spiritfarer</div>
+                        <div class="item-author">Cozy Management Game</div>
+                        <div class="item-description">A touching game about caring for spirits and letting go. Beautiful art, gentle gameplay, and emotional storytelling.</div>
+                        <a href="https://store.steampowered.com/app/972660/Spiritfarer/" class="item-link" target="_blank">View on Steam</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">A Short Hike</div>
+                        <div class="item-author">Peaceful Adventure</div>
+                        <div class="item-description">A relaxing, short experience about hiking to the top of a mountain. Perfect for unwinding and feeling peaceful.</div>
+                        <a href="https://store.steampowered.com/app/1055540/A_Short_Hike/" class="item-link" target="_blank">View on Steam</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">Disco Elysium</div>
+                        <div class="item-author">RPG</div>
+                        <div class="item-description">An incredible narrative RPG with brilliant writing and deep character development. A unique gaming experience.</div>
+                        <a href="https://store.steampowered.com/app/632470/Disco_Elysium/" class="item-link" target="_blank">View on Steam</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🎵 Music & Podcasts</h2>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-title">Bon Iver</div>
+                        <div class="item-author">Artist</div>
+                        <div class="item-description">Beautiful, atmospheric music perfect for reflection and contemplation. Start with "22, A Million" or "For Emma, Forever Ago".</div>
+                        <a href="https://open.spotify.com/artist/4LEiUm1SRbFMgfqnQTwUbQ" class="item-link" target="_blank">Listen on Spotify</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">The Magnus Archives</div>
+                        <div class="item-author">Horror Podcast</div>
+                        <div class="item-description">Brilliant supernatural horror podcast with incredible world-building and storytelling. Perfect for fans of cosmic horror.</div>
+                        <a href="https://rustyquill.com/show/the-magnus-archives/" class="item-link" target="_blank">Listen Here</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">Radiohead</div>
+                        <div class="item-author">Artist</div>
+                        <div class="item-description">Experimental and emotionally complex music. Try "OK Computer" or "In Rainbows" for something transcendent.</div>
+                        <a href="https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb" class="item-link" target="_blank">Listen on Spotify</a>
+                    </div>
+                    
+                    <div class="item-card">
+                        <div class="item-title">Philosophy This!</div>
+                        <div class="item-author">Philosophy Podcast</div>
+                        <div class="item-description">Accessible philosophy discussions that make complex ideas understandable and engaging. Great for curious minds.</div>
+                        <a href="https://www.philosophythis.org/" class="item-link" target="_blank">Listen Here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
             
             <div class="signature">
                 With lots of love, <strong>Dhyeya</strong><span class="cursor"></span>
@@ -406,6 +551,11 @@
                 <a href="https://github.com/arte5craft/Happy-Birthday-Nit/tree/main" class="repo-link" target="_blank">
                     link to repo btw :p
                 </a>
+                <div style="margin-top: 25px;">
+                    <a href="#recommendations" class="repo-link" onclick="showRecommendations()">
+                        ✨ Things You Might Love
+                    </a>
+                </div>
             </div>
         </div>
     </div>
