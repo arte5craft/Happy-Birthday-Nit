@@ -15,8 +15,8 @@
         
         body {
             font-family: 'Rajdhani', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #00ff41;
+            background: linear-gradient(135deg, #0f0f17 0%, #1a1a2e 50%, #252541 100%);
+            color: #8b7fb8;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -31,8 +31,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(139, 127, 184, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 127, 184, 0.05) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
@@ -72,34 +72,44 @@
         @keyframes neonGlow {
             0%, 100% {
                 text-shadow: 
-                    0 0 5px #00ff41,
-                    0 0 10px #00ff41,
-                    0 0 15px #00ff41,
-                    0 0 20px #00ff41;
+                    0 0 5px #8b7fb8,
+                    0 0 10px #8b7fb8,
+                    0 0 15px #8b7fb8;
             }
             50% {
                 text-shadow: 
-                    0 0 10px #00ff41,
-                    0 0 20px #00ff41,
-                    0 0 30px #00ff41,
-                    0 0 40px #00ff41,
-                    0 0 50px #00ff41;
+                    0 0 10px #8b7fb8,
+                    0 0 20px #8b7fb8,
+                    0 0 25px #8b7fb8,
+                    0 0 30px #8b7fb8;
             }
         }
         
-        /* Pulsing border animation */
-        @keyframes pulseBorder {
+        /* Holographic pulse animation */
+        @keyframes holographicPulse {
             0%, 100% {
-                border-color: #00ff41;
+                border-color: #8b7fb8;
                 box-shadow: 
-                    0 0 20px rgba(0, 255, 65, 0.5),
-                    inset 0 0 20px rgba(0, 255, 65, 0.1);
+                    0 0 15px rgba(139, 127, 184, 0.3),
+                    inset 0 0 15px rgba(139, 127, 184, 0.05);
+            }
+            25% {
+                border-color: #6d7fcc;
+                box-shadow: 
+                    0 0 18px rgba(109, 127, 204, 0.35),
+                    inset 0 0 18px rgba(109, 127, 204, 0.08);
             }
             50% {
-                border-color: #ff0080;
+                border-color: #7d6eb8;
                 box-shadow: 
-                    0 0 30px rgba(255, 0, 128, 0.7),
-                    inset 0 0 30px rgba(255, 0, 128, 0.2);
+                    0 0 20px rgba(125, 110, 184, 0.4),
+                    inset 0 0 20px rgba(125, 110, 184, 0.1);
+            }
+            75% {
+                border-color: #6b9ed6;
+                box-shadow: 
+                    0 0 18px rgba(107, 158, 214, 0.35),
+                    inset 0 0 18px rgba(107, 158, 214, 0.08);
             }
         }
         
@@ -113,13 +123,13 @@
         
         .main-content {
             background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ff41;
+            border: 2px solid #a855f7;
             border-radius: 10px;
             padding: 40px;
             margin: 60px 0;
             position: relative;
             backdrop-filter: blur(10px);
-            animation: pulseBorder 3s ease-in-out infinite;
+            animation: holographicPulse 4s ease-in-out infinite;
         }
         
         .main-content::before {
@@ -129,16 +139,22 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #00ff41, #ff0080, #00ff41, #ff0080);
+            background: linear-gradient(45deg, #a855f7, #3b82f6, #8b5cf6, #06b6d4);
             border-radius: 12px;
             z-index: -1;
-            animation: rotate 4s linear infinite;
+            animation: holographicShimmer 3s ease-in-out infinite;
+            opacity: 0.3;
         }
         
-        @keyframes rotate {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.02); }
-            100% { transform: rotate(360deg) scale(1); }
+        @keyframes holographicShimmer {
+            0%, 100% { 
+                opacity: 0.2;
+                filter: blur(1px);
+            }
+            50% { 
+                opacity: 0.4;
+                filter: blur(0px);
+            }
         }
         
         .title {
@@ -147,7 +163,7 @@
             font-weight: 900;
             text-align: center;
             margin-bottom: 30px;
-            color: #00ff41;
+            color: #a855f7;
             animation: neonGlow 2s ease-in-out infinite alternate;
             position: relative;
         }
@@ -159,7 +175,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            color: #ff0080;
+            color: #3b82f6;
             animation: glitch 0.3s ease-in-out infinite;
             clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
             z-index: -1;
@@ -169,17 +185,17 @@
             font-size: 1.4em;
             text-align: center;
             margin-bottom: 40px;
-            color: #ff0080;
+            color: #3b82f6;
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(255, 0, 128, 0.8);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
         }
         
         .message {
             font-size: 1.3em;
             line-height: 1.8;
             margin-bottom: 30px;
-            color: #00ffff;
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+            color: #06b6d4;
+            text-shadow: 0 0 5px rgba(6, 182, 212, 0.5);
             font-weight: 400;
         }
         
@@ -187,28 +203,28 @@
             font-size: 1.2em;
             text-align: right;
             margin-top: 30px;
-            color: #ff0080;
+            color: #8b5cf6;
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(255, 0, 128, 0.8);
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
         }
         
         .link-container {
             text-align: center;
             margin-top: 40px;
             padding: 20px;
-            border-top: 1px solid rgba(0, 255, 65, 0.3);
+            border-top: 1px solid rgba(168, 85, 247, 0.3);
         }
         
         .repo-link {
             display: inline-block;
-            color: #00ff41;
+            color: #a855f7;
             text-decoration: none;
             font-size: 1.1em;
             font-weight: 500;
             padding: 15px 30px;
-            border: 2px solid #00ff41;
+            border: 2px solid #a855f7;
             border-radius: 25px;
-            background: rgba(0, 255, 65, 0.1);
+            background: rgba(168, 85, 247, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -221,7 +237,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent);
             transition: left 0.5s ease;
         }
         
@@ -231,17 +247,17 @@
         
         .repo-link:hover {
             color: #000;
-            background: #00ff41;
+            background: #a855f7;
             box-shadow: 
-                0 0 20px rgba(0, 255, 65, 0.8),
-                0 0 40px rgba(0, 255, 65, 0.6);
+                0 0 20px rgba(168, 85, 247, 0.8),
+                0 0 40px rgba(168, 85, 247, 0.6);
             transform: translateY(-2px) scale(1.05);
         }
         
         /* Floating particles */
         .particle {
             position: fixed;
-            background: #00ff41;
+            background: #a855f7;
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
@@ -260,21 +276,59 @@
         }
         
         .particle:nth-child(odd) {
-            background: #ff0080;
+            background: #3b82f6;
             animation-delay: -2s;
             animation-duration: 8s;
         }
         
         .particle:nth-child(3n) {
-            background: #00ffff;
+            background: #06b6d4;
             animation-delay: -4s;
             animation-duration: 10s;
+        }
+        
+        /* Star field background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .star:nth-child(2n) {
+            background: #a855f7;
+            animation-delay: -1s;
+        }
+        
+        .star:nth-child(3n) {
+            background: #3b82f6;
+            animation-delay: -2s;
+        }
+        
+        .star:nth-child(5n) {
+            background: #06b6d4;
+            animation-delay: -0.5s;
         }
         
         /* Terminal-style cursor */
         .cursor::after {
             content: '|';
-            color: #00ff41;
+            color: #a855f7;
             animation: blink 1s infinite;
         }
         
@@ -310,7 +364,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #00ff41, transparent);
+            background: linear-gradient(90deg, transparent, #a855f7, transparent);
             animation: scanline 3s linear infinite;
             z-index: 1000;
         }
@@ -323,6 +377,9 @@
 </head>
 <body>
     <div class="scanline"></div>
+    
+    <!-- Star field background -->
+    <div class="stars" id="starField"></div>
     
     <!-- Floating particles -->
     <div class="particle" style="top: 20%; left: 10%; width: 4px; height: 4px;"></div>
@@ -354,6 +411,35 @@
     </div>
 
     <script>
+        // Create star field
+        function createStarField() {
+            const starField = document.getElementById('starField');
+            const numberOfStars = 150;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // Random size (1-3px)
+                const size = Math.random() * 2 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                
+                // Random animation delay
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                
+                starField.appendChild(star);
+            }
+        }
+        
+        // Initialize star field
+        createStarField();
+        
         // Add some dynamic particle movement
         const particles = document.querySelectorAll('.particle');
         
